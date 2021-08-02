@@ -13,7 +13,7 @@ This work is no way affiliated with Clubhouse. These files are the results of re
 I strongly advice using [Composer](https://getcomposer.org/) to keep updates as smooth as possible.
 
 ```sh
-$ composer require fadhiilrachman/clubhouse-api
+$ composer require boring-dragon/clubhouse-api
 ```
 
 ### Examples
