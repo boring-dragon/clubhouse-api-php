@@ -1086,4 +1086,24 @@ class Clubhouse extends Requests
 
         return $request;
     }
+
+    public function getSuggestedFollowsSimilar($user_id, $username)
+    {
+        $this->required_login();
+
+        $post = [
+            'user_id' => $user_id,
+            'username' => $username,
+            'query_id' => null,
+            'query_result_position' => null
+        ];
+
+        $request = $this->post('/get_release_notes', $post);
+
+        if (is_array($request) && array_key_exists('error_message', $request)) {
+            throw new ClubhouseException('get suggested follows similar failed', 500);
+        }
+
+        return $request;
+    }
 }
