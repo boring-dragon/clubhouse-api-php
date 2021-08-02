@@ -1106,4 +1106,23 @@ class Clubhouse extends Requests
 
         return $request;
     }
+
+    public function getSuggestedFollowsAll($in_onboarding = true, $page_size = 50, $page = 1)
+    {
+        $this->required_login();
+
+        $param = [
+            'in_onboarding' => $in_onboarding,
+            'page_size' => $page_size,
+            'page' => $page
+        ];
+
+        $request = $this->get('/get_suggested_follows_all', $param);
+
+        if (is_array($request) && array_key_exists('error_message', $request)) {
+            throw new ClubhouseException('get suggested follows all failed', 500);
+        }
+
+        return $request;
+    }
 }
